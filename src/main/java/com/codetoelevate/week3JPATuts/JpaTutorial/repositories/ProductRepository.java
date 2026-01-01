@@ -1,6 +1,8 @@
 package com.codetoelevate.week3JPATuts.JpaTutorial.repositories;
 
 import com.codetoelevate.week3JPATuts.JpaTutorial.entities.ProductEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -12,7 +14,9 @@ import java.util.Optional;
 
 @Repository
 public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
-    Optional<ProductEntity> findByTitle(String s);
+    List<ProductEntity> findByOrderByPrice();
+
+    Page<ProductEntity> findBy(Pageable sortBy);
 
     Optional<ProductEntity> findByCreatedAtAfter(LocalDateTime of);
 

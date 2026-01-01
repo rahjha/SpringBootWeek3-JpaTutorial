@@ -2,7 +2,6 @@ package com.codetoelevate.week3JPATuts.JpaTutorial;
 
 import com.codetoelevate.week3JPATuts.JpaTutorial.entities.ProductEntity;
 import com.codetoelevate.week3JPATuts.JpaTutorial.repositories.ProductRepository;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -48,8 +47,8 @@ class JpaTutorialApplicationTests {
 
     @Test
     void getRepositoryfindByName(){
-        Optional<ProductEntity> entity = productRepository.findByTitle("Laptop 16GB RAM");
-        System.out.println(entity);
+        List<ProductEntity> entity = productRepository.findByOrderByPrice();
+        System.out.println();
     }
 
     @Test
